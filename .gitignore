@@ -48,3 +48,6 @@ Temporary Items
 
 # Node Modules
 node_modules/
+
+# Upload Folder
+uploads/
