@@ -19,7 +19,7 @@ registerRouter.post('/',function(req,res,next){
 			res.send(err);
 		}
 		else{
-			req.session.email=data.email;
+			
 			res.redirect(303,'/register/success');		}
 		
 	});
@@ -27,9 +27,6 @@ registerRouter.post('/',function(req,res,next){
 
 
 registerRouter.get('/success',function(req,res,next){
-	// const email = req.session.email;
-	// console.log(req.session);
-	//req.session.email = null;
 	res.render('register-success');
 });
 

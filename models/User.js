@@ -5,10 +5,19 @@ const bcrypt = require('bcrypt-nodejs');
 
 const emailRegexMatch = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-let UserSchema = new mongoose.Schema({
+
+
+const UserSchema = new mongoose.Schema({
 	email:{type:String,required:true,match:emailRegexMatch},
 	password:{type:String,required:true}
 });
+
+UserSchema.methods.removePassword = function(){
+	var user = this.toObject();
+	delete user.password;
+	return user;
+}
+
 module.exports = mongoose.model('User',UserSchema);
 
 UserSchema.pre('save',function(next){

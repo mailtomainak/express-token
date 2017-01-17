@@ -2,23 +2,23 @@ const express = require('express');
 const apiRouter = require('./routers/apiRouter');
 const registerRouter = require('./routers/registerRouter');
 const mongoose = require('mongoose');
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
 
 
-const pug = require('pug');
+
+// const pug = require('pug');
 const app = express();
-app.use(cookieParser());
-app.use(session({
-  secret: 'my-secret',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
-}));
+// app.use(cookieParser());
+// app.use(session({
+//   secret: 'my-secret',
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: { secure: true }
+// }));
+
 app.use('/api',apiRouter);
-app.use('/register',registerRouter);
-app.set('view engine', 'pug')
-app.set('views', './views');
+//app.use('/register',registerRouter);
+// app.set('view engine', 'pug')
+// app.set('views', './views');
 
 
 //move to config

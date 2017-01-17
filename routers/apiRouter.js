@@ -15,7 +15,7 @@ apiRouter.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-
+apiRouter.use(bodyParser.urlencoded());
 apiRouter.use(bodyParser.json());
 //map all the routes  here.
 apiRouter.use('/comments',commentsApiRouter);
